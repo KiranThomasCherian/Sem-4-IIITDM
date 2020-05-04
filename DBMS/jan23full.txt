@@ -1,0 +1,27 @@
+use jan23;
+  select sname,major from Student where age=(select min(age) from student);
+ select sname,major from Student where age=(select max(age) from student);
+select sname,major from Student order by  age  limit 1;
+select sname,major from Student order by  age desc limit 1;
+ select * from Student where major like "%n" or major like "d%";
+select * from Student order by sname;
+select fid,depit from Faculty where salary=(select max(salary) from Faculty);
+ update Faculty set salary =salary +0.2*salary;
+ select fid,fname from Faculty where depit=1 or salary>=50000 order by salary;
+ select * from Student where major='software engineering' and snum in (select snum from Enrolled where coursename ='DBMS') order by sname;
+ select snum,sname from Student where sname like "%n" or sname like "d%";
+ select * from Student where sname like "%ha%";
+ select * from Student where major='software engineering' and level="SR";
+ select * from Student where snum in (select snum from Enrolled where coursename ='DBMS');
+ select fid,depit from Faculty where fid in (select fid from Class where room ='h05');
+ select avg(salary) from Faculty where depit=1;
+ select coursename,count(*) from enrolled group by coursename order by count(*) desc limit 1;
+select coursename,count(*) from enrolled group by coursename order by count(*)  limit 1;
+ select fid,fname from faculty where fid in (select fid from(select fid,count(*) from class group by fid order by count(*) desc limit 1)as subtable);
+  select sname from Student where level='JR' and snum in (select snum from Enrolled where coursename in (select coursename from Class where fid=1) );
+  select coursename from Class where room  IS NULL;
+ 
+ 
+ 
+select * from faculty where salary<(select max(salary)from faculty) order by salary desc limit 1;
+ 

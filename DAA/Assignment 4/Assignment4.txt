@@ -1,0 +1,20 @@
+Assignment 4 April 10
+NOTE: For each of the question, present the logic and analysis as part of (i) theory assignment, email the
+typed doc/handwritten (ii) C++ code for practice, email the code on completion. Questions are relatively
+easy and can be answered if you have understood my scribe. Work in a group of size 4/5 for both theory
+and practice. For all these questions, solutions are available online in some form, pay attention while lifting
+the solution.
+1. Coin-Change problem: Given denominations d1; d2; : : : ; dk (Ex: Re 100, 500, 2000) and an integer
+x, the objective is to return change for x if exists using minimum number of currencies. Present (i)
+Greedy Algorithm (ii) Dynamic Programming
+2. The above problem with the restriction that the number of di is at most li.
+3. Finding Maximum Independent Set in Trees - An independent set is a set of mutually non-adjancet
+verties and maximum independent set is a set of maximum size. Present (i) Greedy Algorithm (ii)
+Dynamic Programming
+4. For Matrix-chain multiplication; present two greedy strategies and for each of them present a counter
+example to show that it does not give optimum always. As part of practice, implement the DP given
+in scribe.
+5. All Pairs Shortest Path - Shortest path between any two given pair of vertices (i) Present a greedy
+strategy (ii) Present a DP
+6. Implement the DP given in scribe for Knapsack problem.
+7. Implement Bellman Ford Algorithm.

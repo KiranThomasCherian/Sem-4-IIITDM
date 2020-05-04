@@ -1,0 +1,23 @@
+ARMSIM Exercises:
+19.	Install ARMSim on your laptop. Do arithmetic and logical operations on the contents of two registers. Learn the features of ARMSIM, no need to exercise them all for now.
+20.	Write an ARM assembly program to WRITE to a file. Write 1 line of text to this file. Make sure you close the file after you write to it. 
+21.	Write an ARM assembly program to read from the file that you created in Problem 1.   Open this file in READ mode, READ and dump its contents to STDOUT. 
+22.	Write an ARM assembly program to receive 3 different Integers (Comma separated) inputs from a file. After receiving all the three values, print them on STDOUT on separate lines.
+23.	In some single threaded embedded system applications, we use timers built using assembler sub-routine. This type of routines is sufficient and reasonably accurate for many applications. Develop a subroutine “Stimer” that can create 1000 (approximately) Clock cycles delay. Using this subroutine write another subroutine “Ltimer” that can create delay which are multiples of 10000 (approximately) cycles. The Ltimer is simple and no need for other timers.  The Ltimer can be used to create periodic scan of I/O devices or any periodic activity.
+24.	Write ARM assembly code that can make the two red LEDs in Embest Plugin of ARMSIM to glow alternatively at observable rate. Your code should be user configurable for various rate. Use timer developed in problem 4. 
+25.	Write ARM assembly code that can make the 8-segment display to go from 0 to 9 at an observable rate. Your code should be user configurable for various rate. 
+26.	Write an ARM assembler program that increments the elements of a vector of size 100. After incrementing, copy the vector to a different part of the memory and add the two vectors and store the result where first vector was in. Repeat the above procedure three or more times once with Multiplication (instead of ADD) by 5, once with divide by 4, and finally by adding 16384. Finally copy the vector to a file. Optimize code for execution time using appropriate cache configuration and choosing the appropriate assembly instruction. Solution with best execution time will be recognized suitably. 
+27.	Plot your observations from problem 7 using Excel Spread Sheet.
+28.	Run the program that you wrote for Exercise 7 with unified cache with direct mapping and Write back. For the following combination of cache size and block size measure the miss rate.  Plot your results and provide your observation. Due on March 3rd or 4th.
+cache Size	Test 1	Test 2
+	Bock Size	Block Size 
+128	16	32
+256	16	32
+512	16	32
+1024	16	32
+2K	16	32
+4K	16	32
+8K	16	32
+
+29.	Run the program that you wrote for Exercise 14 with split cache with direct mapping and Write back. For the following combination of cache size and block size measure the hit and miss rate.  Plot your results and provide your observation.  
+

@@ -1,0 +1,50 @@
+use febr06;
+2.select fname from employee where superssn is null;
+3.//?select essn from workson where hours=(select hours from workson where essn =123456789 and pno=(select pno from workson where essn=123456789));
+
+ select distinct essn from workson where (hours,pno) in(select hours,pno from workson where essn =123456789);
+
+4.select fname from employee inner join dependent on employee.ssn=dependent.essn where employee.fname=dependent.dependtname and employee.sex=dependent.sex;
+5. select fname from employee where ssn not in(select essn from dependent);
+6. select fname from employee where superssn is null and ssn in(select essn from dependent);
+7.select distinct ssn from  employee natural join workson where pno in (1,2,3);
+8. select sum(salary),max(salary),min(salary),avg(salary) from employee;
+9.select sum(salary),max(salary),min(salary),avg(salary) from employee inner join workson on employee.ssn=workson.essn where pno = (select pnumber from project  where dnum=(select dnumber from department where dname='research'));
+10.select fname,lname from employee where ssn in (select essn from dependent group by essn having count(*)>1);
+11.select dnumber,count(*),avg(salary) from department inner join employee on employee.dno=department.dnumber group by department.dnumber;
+12. select pnumber,pname,count(*) from project inner join workson on project.pnumber=workson.pno group by pnumber;
+13. select pnumber,pname,count(*) from project inner join workson on project.pnumber=workson.pno group by pnumber having count(*)>2;
+14. select pnumber,pname,count(*) from project inner join workson on project.pnumber=workson.pno where essn in(select ssn from employee where dno=5) group by pnumber;
+15. select dno,fname from employee where salary>40000 having dno in (select dno from employee having count(*)>=5);  //use>5
+16. select dname,count(*) from department,employee where dnumber=dno group by dno having avg(salary)>30000;
+17.select dno,count(*) from employee where salary>30000 and sex='m' group by dno;
+18.select fname,mnit,lname from employee where dno = (select dno from employee where salary = (select max(salary) from employee));
+19.select fname from employee where superssn in(select ssn from employee where superssn=888665555);
+20.select fname,mnit,lname from employee where salary>=10000 + (select min(salary)from employee);
+21.select ssn from employee where salary<(select max(salary)from employee)order by salary desc limit 1;
+22. select salary from employee order by salary desc limit 3;
+23. select dno,max(salary) from employee group by dno ;
+24.   select dnumber,dname from department where dnumber not in(select dno from employee) ;
+25.  select concat(fname,' ',mnit,' ',lname) as name from employee;
+26.   select fname,mnit,lname from employee where fname like'_____';
+27.select avg(salary) from employee where sex ='f';
+28. select * from employee where ssn in (select essn from workson where pno in(select pnumber from project where dnum=5));	  //divide op not covered
+29.select * from employee where ssn in (select essn from workson where pno in(select pnumber from project where plocation='chennai'));//above
+30.select * from employee where ssn not in (select essn from workson );
+31.select pname,sum(hours) from project inner join workson on pnumber=pno group by pno;
+32.select fname from employee where ssn in(select essn from workson where pno in(select project.pnumber from (department inner join project on dnumber=dnum) inner join deplocations on dnum=deplocations.dnumber where plocation='chennai' and dlocations <>'chennai'));
+33.select fname from employee where ssn in (select essn from workson where pno in (select pnumber from project where dnum=10));
+34.select fname,ssn from employee where ssn =(select superssn from(select superssn,count(*) from employee where superssn is not null group by superssn order by count(*) desc limit 1) as sub1);
+35.// select ssn,fname from employee where (ssn in(select superssn from employee group by superssn order by count(*))and ssn in(select mgrssn from department where dnumber in(select dnum from project group by dnum having count(*)>=2)));
+36. select fname,mnit,lname,ssn,bdade,address,sex,salary,superssn,dno from employee inner join department on dno =dnumber where salary>(select(salary) from employee where ssn=mgrssn);//-------.select dno,salary from employee inner join department on dno =dnumber where salary>(select(salary) from employee where ssn=mgrssn);
+37.select fname from employee where superssn in(select ssn from employee inner join department on dno=dnumber where dno=((select dnumber from department where dname='research'))) union select fname from employee  where dno=(select dnumber from department where dname='research') ;
+38.select fname from employee where ssn in (select superssn from employee where fname in (select fname from employee  where dno=(select dnumber from department where dname='research'))) union select fname from employee  where dno=(select dnumber from department where dname='research') ;
+39.select * from employee where( bdade >='1950-01-01' and bdade <'1960-01-01');
+40.select fname from workson inner join employee on essn=ssn where (dno=5 and essn in (select essn from workson where (pno in (select pnumber from project where pname='projectx')and hours>=10)) );
+41.select count(distinct salary) from employee;
+42.//?
+43.//divide
+44. select pno from workson where essn in (select ssn from employee where lname='smit') union select pnumber from project inner join department on dnumber=dnum where department.mgrssn in(select ssn from employee where lname='smit');
+45. (select department.dnumber,lname,bdade,address from ((department inner join project on dnumber=dnum) inner join deplocations on dnum=deplocations.dnumber) inner join employee on ssn=mgrssn where plocation='chennai');
+
+

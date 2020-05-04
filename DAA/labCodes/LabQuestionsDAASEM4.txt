@@ -1,0 +1,157 @@
+jan 9:
+Today's lab
+
+Ins:
+
+0.  complete GCD by today with assistance from TAs.  You should constantly interact with TAs and use their expertise.
+1.  write logic for all questions in your note book before you attempt coding.   Trace the code before implement.
+2. Group assignment of size 2, for some it is 3.
+
+TAs
+There are at least 10 TAs, each one of you can take care of 10 groups and monitor their progress throughout this semester.
+
+1.
+
+Input:   Integer Array A and an integer p
+Question: Does there exist q and r in A such that p=q+r
+
+Propose three different logic and implement all three.   Use system time function and compare system time for each logic.   Test drive on at least 20 different inputs and plot the graph.    Is it possible to call 'excel' from C/C++ program to plot the graph.   If yes, make an attempt.   Identify which logic is efficient through system time.
+
+2.
+
+Input:   Accept a large sized integer array from the user with the following constraints  (i) user should not enter the size of the array  (ii) the elements must be entered in non-decreasing order  until some time after which the user must enter -1 only and no other integer.
+
+Question:  Identify the position of the first '-1'
+
+Propose three different logic and implement all three.  Like the above, compare system time to pick the best.    As a programmer, you may declare an array of size, say, 10000.
+
+3. Input: Accept integer n
+Question: print the following 5 types
+
+1 2 3 4 5  (1....n)
+1 2 3 4
+1 2 3
+1 2
+1
+
+1 2 3 4 5
+  2 3 4 5
+     3 4 5
+        4 5
+           5
+
+1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5
+
+          5
+        4 5
+      3 4 5
+   2 3 4 5
+1 2 3 4 5
+
+
+1 2 3 4 5 6 7 8
+  2 3 4 5 6 7
+     3 4 5 6
+        4 5
+        4 5
+     3 4 5 6
+  2 3 4 5 6 7
+1 2 3 4 5 6 7 8
+
+
+
+
+
+Jan 16:
+
+1. Given a ternary array (filled with 0,1,2) of size 'n'.   Arrange them in non-decreasing order preserving stability (for elements with multiplicity, their order of appearance must be preserved in the output array).
+
+ex: 2 0 1 1 0 0 2  --in the final array, 0 0 0 1 1 2 2 ; the first '2' of the input array must appear before the second '2'.   
+
+Present three diff logic.   Can this be done in theta(n) time.
+
+2. Given an integer array; partition it into two of equal size such that their sum is maximum.   That is A is partitioned into A1 and A2 of equal size such that sum of the elements in A1 is maximum and sum of the elements in A2 is maximum.
+
+If the problem is trivial, then fine tune the problem description so that it becomes non-trivial.   Assume array size is even.
+
+Jan 23:
+
+Today's stuffs
+
+All about Divide and Conquer Paradigm
+
+1. Given 'n' numbers, compute GCD using DC.   Similarly, LCD
+2. Count the number of 1's in a binary array using DC
+3. Count the number of negative numbers in an integer array using DC
+4. Implement Towers of Hanoi.
+5. Implement 2-way, 3-way merge sort.    Trace the code to understand how the stack is updated.
+
+
+Feb 6:
+
+1. Input:   Sorted Arrays; A1,...Ak    Question:  Sort union of A_i 's
+
+Implement the following Logic
+
+L1:  Incremental Design   ;  Sort(A_1,A_2), A_3), A_4,...
+
+L2: Divide and Conquer  ;   Split k arrays into two sets of k/2 each.   Let this be done recursively until set size is 2.   Invoke Sort function in a bottom up fashion.
+
+L3: Maintain k pointers,   Find MIN out of k elements pointed by the pointers and output MIN.  If MIN is in A_i, then move pointer P_i by one cell right.   Continue this process until all elements are visited.
+
+L4: Construct BST on union of A_i 's and perform inorder traversal.
+
+L5: Maintain a heap on k elements pointed by k pointers,  then extract MIN,  If MIN is in A_i, then move pointer P_i by one cell right.  Insert the current element pointed by P_i into Min-heap, continue this process
+
+2. SORTING
+
+a. Create  a random integer array of size 10^6.
+b. Follow divide and conquer strategy (Merge Sort) until the input size is reduced to 10^4.   Recursion bottoms out at this input size.   All leaves of the input reduction tree are approximately 10^4.
+c. Perform Insertion sort at each leaf node
+d. In a bottom up fashion combine the solutions using Merge Sort MERGE routine.
+
+
+Feb 21:
+Logic for theta(logn^2)
+
+Given an integer n, convert n into binary.  the binary repn has log n bits.  Perform n * n in binary; the number of bit-level multiplications and additions incur logn^2
+
+logic for n sqrt(n)
+
+Primality check using subtraction as a subroutine (mod operator is expressed as a function of subtraction operator)
+
+Given an integer n, to check whether n is prime or not; run a loop with loop index i upto sqrt(n).   To check whether i divides n.  For example, 2 divides n, 3 divides n, etc.  Use subtraction routine;  to check 2 divides n, subtract '2' from 'n' repeatedly; this incurs theta(n).  to check 3 divides n, subtract '3' from 'n' repeatedly; this incurs theta(n).  Overall, n sqrt(n).
+
+If you carefully notice, the above two logic focus on the integer 'n' and algorithmic thinking.
+-----------------
+for practice
+-----------------
+Implement the above logic as part of lab
+Also, implement 3n/2-2 logic in place (without using any additional array)
+Implement n+logn -2 logic.  If possible, attempt in place implementation
+Find k smallest elements using quicksort partition routine
+There is a gap in the logic given for n sqrt(n).  It is actually theta(n log n).  thanks to Aprajith.
+
+Here is a logic for n sqrt(n).  If you find a gap, pl let me know.
+
+Primality checking with subtraction routine implemented in unary.
+
+Outerloop runs for sqrt(n)
+
+to check 2 divides n; represent 'n' in unary and scan the array linearly.  For every second '1', change it to $ (some special symbol).  At the end, if there are no 1's then 2 divides n, otherwise 2 does not divide n.  this task incurs  theta(n)
+
+to check 3 divides n; rep 'n' in unary and for every third '1', change it to $.  this is also theta(n).
+
+
+_________________________________________________________-
+
+_________________________________________________________________________________
+
+
+
+
+
